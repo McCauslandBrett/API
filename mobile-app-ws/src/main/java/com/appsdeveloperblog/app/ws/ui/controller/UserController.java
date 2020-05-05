@@ -1,6 +1,7 @@
 package com.appsdeveloperblog.app.ws.ui.controller;
 
-import java.awt.PageAttributes.MediaType;
+
+import org.springframework.http.MediaType;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,30 +12,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
+
 @RestController
 @RequestMapping("/users") // http://localhost:8080/users
 // This entire class is mapped to users
 public class UserController {
 	
-//	@GetMapping(path="/{userId}")
 //	public String getUser(@PathVariable String userId) {
+//	@GetMapping(path="/{userId}")
 //		return "get user was called with userId = " + userId;
 //		
 //	}
 	
-//	http://localhost:8080/users/anYthingdkjfal
-//	@GetMapping(path="/{userId}", 
-//			produces = {MediaType.APPLICATION_XML_VALUE,
-//						MediaType.APPLICATION_JSON_VALUE
-//						})
-//	public UserRest getUser(@PathVariable String userId) {
-//		UserRest returnValue = new UserRest();
-//		returnValue.setEmail("test@test.com");
-//		returnValue.setFirstName("Brett");
-//		returnValue.setLastName("McCausland");
-//		return returnValue;
-//		
-//	}
+	// http://localhost:8080/users/anYthingdkjfal
+	@GetMapping(path="/{userId}", 
+			produces = {MediaType.APPLICATION_XML_VALUE ,
+						MediaType.APPLICATION_JSON_VALUE
+						})
+	public UserRest getUser(@PathVariable String userId) {
+		UserRest returnValue = new UserRest();
+		returnValue.setEmail("test@test.com");
+		returnValue.setFirstName("Brett");
+		returnValue.setLastName("McCausland");
+		return returnValue;
+		
+	}
 	
 	//	http://localhost:8080/users?page=1&limit=50
 	//	http://localhost:8080/users?page=1
